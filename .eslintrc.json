@@ -1,0 +1,233 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "standard",
+    "react-app"
+  ],
+  "ignorePatterns": [
+    "node_modules/"
+  ],
+  "rules": {
+    "max-len": ["warn", {
+      "code": 120,
+      "tabWidth": 4,
+      "ignoreUrls": true
+    }],
+    "no-tabs": ["error", { "allowIndentationTabs": true }],
+    "no-multiple-empty-lines": ["warn", {
+      "max": 2,
+      "maxEOF": 1,
+      "maxBOF": 1
+    }],
+    "comma-dangle": ["error", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "always-multiline",
+      "exports": "always-multiline",
+      "functions": "only-multiline"
+    }],
+    "linebreak-style": ["error", "unix"],
+    "padded-blocks": ["warn", {
+      "switches": "never"
+    }],
+    "quote-props": ["error", "consistent-as-needed"],
+    "no-unused-vars": "off",
+    "no-case-declarations": "off"
+  },
+  "overrides": [
+    {
+      "files": ["*.tsx"],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project": "tsconfig.json",
+        "sourceType": "module"
+      },
+      "settings": {
+        "import/resolver": {
+          "typescript": {
+            "project": "tsconfig.json"
+          }
+        }
+      },
+      "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "standard-with-typescript",
+        "plugin:import/recommended"
+      ],
+      "rules": {
+        "max-len": ["warn", {
+          "code": 160,
+          "tabWidth": 4,
+          "ignoreUrls": true
+        }],
+        "no-multiple-empty-lines": ["warn", {
+          "max": 2,
+          "maxEOF": 1,
+          "maxBOF": 1
+        }],
+        "comma-dangle": ["error", {
+          "arrays": "always-multiline",
+          "objects": "always-multiline",
+          "imports": "always-multiline",
+          "exports": "always-multiline",
+          "functions": "only-multiline"
+        }],
+        "linebreak-style": ["error", "unix"],
+        "padded-blocks": ["warn", {
+          "switches": "never"
+        }],
+        "quote-props": ["error", "consistent-as-needed"],
+        "no-unused-vars": "off",
+        "no-case-declarations": "off",
+        "no-useless-escape": "off",
+        "no-unreachable": "off",
+        "@typescript-eslint/no-misused-promises": "warn",
+        "@typescript-eslint/restrict-plus-operands": "warn",
+        "@typescript-eslint/no-dynamic-delete": "warn",
+        "@typescript-eslint/prefer-optional-chain": "warn",
+        "import/no-unresolved": "warn",
+        "@typescript-eslint/no-empty-function": "warn",
+        "@typescript-eslint/default-param-last": "warn",
+        "@typescript-eslint/require-await": "warn",
+        // zákaz ts-comment;
+        "@typescript-eslint/ban-ts-comment": "off",
+        // Prefix před interface (car.interface => ICar)
+        "@typescript-eslint/interface-name-prefix": "off",
+        // funkce musí vracet typ.
+        "@typescript-eslint/explicit-function-return-type": "off",
+        // pravidlo zakazuje any
+        "@typescript-eslint/no-explicit-any": "off",
+        // Some packages have wrong type declarations.
+        "import/default": "off",
+        // odřádkování za importama
+        "import/newline-after-import": ["error", { "count": 2 }],
+        // duplicita v importech
+        "import/no-duplicates": "off",
+        // pojmenování anonymních importů
+        "import/no-named-as-default-member": "off",
+        // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-named-as-default.md
+        "import/no-named-as-default": "off",
+        // Array type.
+        "@typescript-eslint/array-type": "off",
+        // Zákázání typů
+        "@typescript-eslint/ban-types": "off",
+        // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/class-literal-property-style.md
+        "@typescript-eslint/class-literal-property-style": ["error", "fields"],
+        // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/consistent-type-assertions.md
+        "@typescript-eslint/consistent-type-assertions": ["error", {
+          "assertionStyle": "as",
+          "objectLiteralTypeAssertions": "allow"
+        }],
+        // objeccty musí být definovány jako interface nebo typ.
+        "@typescript-eslint/consistent-type-definitions": "off",
+        // properity v contructoru nesmí být public.
+        // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/explicit-member-accessibility.md
+        "@typescript-eslint/explicit-member-accessibility": ["error", {
+          "accessibility": "no-public",
+          "overrides": {
+            "parameterProperties": "off"
+          }
+        }],
+        // způsob odřádkování
+        "@typescript-eslint/indent": ["error", 2, {
+          "SwitchCase": 1,
+          "VariableDeclarator": 1,
+          "outerIIFEBody": 1,
+          "MemberExpression": 1,
+          // Changed parameters from 1 to off.
+          "FunctionDeclaration": { "parameters": "off", "body": 1 },
+          // Changed parameters from 1 to off.
+          "FunctionExpression": { "parameters": "off", "body": 1 },
+          // Changed arguments from 1 to off.
+          "CallExpression": { "arguments": "off" },
+          "ArrayExpression": 1,
+          "ObjectExpression": 1,
+          "ImportDeclaration": 1,
+          // Changed from false to true.
+          "flatTernaryExpressions": true,
+          "ignoreComments": false
+        }],
+        // Mezera mezi class memberama
+        "@typescript-eslint/lines-between-class-members": "warn",
+        // oddělování čelů ve funkci / array / import
+        "@typescript-eslint/member-delimiter-style": ["error", {
+          "multiline": { "delimiter": "comma", "requireLast": true },
+          "singleline": { "delimiter": "comma", "requireLast": false },
+          "overrides": {
+            "interface": {
+              "multiline": { "delimiter": "none" }
+            }
+          }
+        }],
+        // popisování čelnů komentářema.
+        "@typescript-eslint/member-ordering": "warn",
+        // definování metod
+        // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/method-signature-style.md
+        "@typescript-eslint/method-signature-style": "warn",
+        // Jak se mají definovat funkce.
+        "@typescript-eslint/no-extra-semi": "warn",
+        // It disallows using void even in valid cases.
+        // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-invalid-void-type.md
+        "@typescript-eslint/no-invalid-void-type": "off",
+        // Changed from error to warn.
+        // Definuje nastavování importu
+        "@typescript-eslint/no-namespace": "error",
+        // Changed from error to warn.
+        // musí vrace vždy nějakou hodnotu.
+        "@typescript-eslint/no-non-null-assertion": "warn",
+        // nejde předeclarovat properitu.
+        "@typescript-eslint/no-redeclare": "warn",
+        // zákaz používatí require
+        "@typescript-eslint/no-require-imports": "error",
+        // Changed from error to warn.
+        // nejde setovat do typu any
+        "@typescript-eslint/no-unsafe-member-access": "off",
+        // Nevyužitý var.
+        "@typescript-eslint/no-unused-vars": "off",
+        // error pokud se nepoužívá properita.
+        "@typescript-eslint/no-unused-vars-experimental": ["off", {
+          "ignoreArgsIfArgsAfterAreUsed": true
+        }],
+        // pokud není declarovaná nejde poiužít.
+        "@typescript-eslint/no-use-before-define": ["off", {
+          "functions": false,
+          "typedefs": false
+        }],
+        // enum musí být nastaven defaultní typ Open = "Open"
+        "@typescript-eslint/prefer-enum-initializers": "error",
+        // Pokud možné preferuje loop for of
+        "@typescript-eslint/prefer-for-of": "warn",
+        // preferuje includování do stringu před čistou declarací
+        "@typescript-eslint/prefer-includes": "warn",
+        // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-reduce-type-parameter.md
+        "@typescript-eslint/prefer-reduce-type-parameter": "off",
+        // Preferuje regexp
+        "@typescript-eslint/prefer-regexp-exec": "warn",
+        // preferuje správné použítí kontroly začínání stringu a konce tringu foo[foo.length - 1]
+        "@typescript-eslint/prefer-string-starts-ends-with": "warn",
+        // nevím
+        // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/restrict-template-expressions.md
+        "@typescript-eslint/restrict-template-expressions": "off",
+        // Zakazuje použití jiných hodnot než true a flase tam kde se očekávají
+        "@typescript-eslint/strict-boolean-expressions": "off",
+        // připomíná které čsti filedů chybí při deklaraci.
+        "@typescript-eslint/switch-exhaustiveness-check": "error",
+        "@typescript-eslint/unbound-method": "off",
+        "@typescript-eslint/no-unsafe-call": "off",
+        "new-cap": "off",
+        "@typescript-eslint/no-unsafe-return": "off",
+        "@typescript-eslint/dot-notation": "off",
+        "@typescript-eslint/no-unsafe-assignment": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/no-extraneous-class": "off",
+        "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/no-for-in-array": "off",
+        "@typescript-eslint/no-floating-promises": "off",
+        "@typescript-eslint/return-await": ["off", "in-try-catch"]
+      }
+    }
+  ]
+}
+
